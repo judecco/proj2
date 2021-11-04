@@ -1,50 +1,20 @@
+
+
 <html>
-
-<form action="http://localhost:5000/saveRecord" method="post">
-
- Name: 
-<input type="Text" name="na">
-<br>
-
-Department:
-<select name="dept">
-    <option value="HR"> Human Resources </option>
-    <option value="IT"> Information Technology </option>
-    <option value="Sales"> Sales </option>
-    <option value="Training"> Training and Development </option>
-
-<select>
-<br>
-Salary <input type="text" name="sal">
-<br>
-
-<tr>
-<td> Subject:</td>
-<td>
-<select name="subject">
-    <option value="Java"> Java Programming </option>
-    <option value="SQL"> SQL Development </option>
-    <option value="Python"> Python </option>
-    <option value="C"> C Language </option>
-
-</select>
-</td>
-</tr>
-<br>
-<td>Marks:  </td>
-    <input type="number" name="marks">
-<br>
-
-<td> Client:</td>
-<select name="client">
-    <option value="ONS"> ONS </option>
-    <option value="IBM"> IBM </option>
-    <option value="GIT"> GIT </option>
-    <option value="NBS"> NBS </option>
-</select>
-
-<input type="submit" value="SEND">
-
-</form>
-
-</html>
+    <div class='form'>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.emp_name.label }} {{ form.emp_name }}
+            <br>
+            {{ form.salary.label }} {{ form.salary }}
+            <br>
+            {{ form.marks.label }} {{ form.marks }}
+            <br>
+            {{ form.subject.label }} {{form.subject }}
+            <br>
+            {{ form.department.label }} {{ form.department }}
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+    </html>

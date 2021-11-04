@@ -1,26 +1,28 @@
 <html>
 
-<a href="http://localhost:5000"> homepage </a>
+<a href="http://localhost:5000"> home page </a>
 <br>
 <br>
 <br>
 
-Employee Number: {{record[0]}}
+Employee Number: {{record.regno}}
 <br>
-Name: {{record[1]}}
+Employee Name:{{record.name}}
 <br>
-Department: {{record[2]}}
+Department:{{record.dept}}
 <br>
-Salary: {{record[3]}}
+Salary:{{record.salary}}
 <br>
-Tax: {{record[3]* 21/100}}
+Tax:{{record.salary*21/100}}
 <br>
-Net Salary: {{record[3]- (record[3]*21/100)}}
+Net salary:{{ record.salary-(record.salary*21/100)}}
 <br>
-Subject: {{record[4]}}
+Subject:{{record.subject}}
 <br>
-Marks: {{record[5]}}
+Marks:{{record.marks}}
 <br>
-Percenentage: {{record[5]*100/200}}
+Percentage:{{record.marks*100/200}}
+
+
 
 </html>

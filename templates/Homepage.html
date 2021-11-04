@@ -1,55 +1,41 @@
 <html>
-
-<center> <h2> Employee Information Systems </h2>
-
+<center> <h2> Employee Information System </h2>
 <br>
 <br>
 <br>
-<a href="http://localhost:5000/addnewRecord"> New Record </a>
+<a href="http://localhost:5000/saveRecord"> New Record </a>
 
 <form action="http://localhost:5000/filterrecords" method="POST">
 <select name="dept">
-    <option value="HR"> Human Resources </option>
-    <option value="IT"> Information Technology </option>
-    <option value="Sales"> Sales </option>
-    <option value="Training"> Training and Development </option>
-    <option value="all"> All Records </option>
-    </select>
-    <input type="submit" value="Filter">
+			<option value="HR"> Human Resource </option>
+			<option value="IT"> Information Tech </option>
+			<option value="Sales"> Sales </option>
+			<option value="Training"> Training and Development </option>
+			<option value="all"> All records </option>
+
+			</select>
+			<input type="submit" value="Filter">
 </form>
+<table>
+	<tr bgcolor='Green'>
+		
+		<td > Name </td>
+		<td > Department </td>
+		<td > Subject</td>
+		<td> Operations </td>
 
-<form action="http://localhost:5000/filtersubject" method="POST">
-    <select name="subject">
-        <option value="Java"> Java Programming </option>
-        <option value="SQL"> SQL Development </option>
-        <option value="Python"> Python </option>
-        <option value="C"> C Language </option>
-        <option value="all"> All Records </option>
-        </select>
-        <input type="submit" value="Filter">
-    </form>
+	</tr>
+	{%  for record in records %}
 
+		<tr>
+				<td> <a href="http://localhost:5000/personaldetails/{{record.regno}}"> {{ record.name }}</a> </td>
+				<td> {{record.dept}} </td>
+				<td> {{record.subject}} </td>
+				<td> <a href="http://localhost:5000/editRecord/{{record.regno}}"> edit </a>, 
+					<a href="http://localhost:5000/deleteEmployee/{{record.regno}}"> delete </a>
+				</td>
+		</tr>
 
-    <table>
-    <tr bgcolor='Blue'>
-        <td> Name </td>
-        <td> Department </td>
-        <td> Subject </td>
-        <td> Client </td>
-        <td> Operations </td>
-    </tr>
-    {%for record in records %}
-
-    <tr>
-        <td> <a href="http://localhost:5000/personaldetails/{{record[0]}}"> {{record[1]}} </a></td>
-        <td>    {{record[2]}} </td>
-        <td>    {{record[4]}} </td>
-        <td>    {{record[6]}} </td>
-        <td> <a href="http://localhost:5000/editRecordForm/{{record[0]}}"> edit </a>, 
-            <a href="http://localhost:5000/deleteEmployee/{{record[0]}}"> delete </a>
-        </td>
-    </tr>
-
-    {% endfor %}
+	{% endfor %}
 </table>
 </html>

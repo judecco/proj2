@@ -1,60 +1,19 @@
+
 <html>
-
-<form action="http://localhost:5000/saveEditedForm" method="post">
- <input type="hidden" name="regno" value="{{record[0]}}">
-
-<td> Name: </td> 
-<td><input type="Text" name="na" value="{{ record[1]}}">
-    <br>
-    <br>
-Department:
-<select name="dept" >
-    <option selected hidden> {{record[2]}} </option>
-    <option value="HR"> Human Resources </option>
-    <option value="IT"> Information Technology </option>
-    <option value="Sales"> Sales </option>
-    <option value="Training"> Training and Development </option>
-
-<select>
-<br>
-Salary <input type="text" name="sal" value="{{ record[3] }}">
-<br>
-
-<tr>
-<td> Subject:</td>
-<td>
-<select name="subject" >
-    <option selected hidden> {{record[4]}} </option>
-    <option value="Java"> Java Programming </option>
-    <option value="SQL"> SQL Development </option>
-    <option value="Python"> Python </option>
-    <option value="C"> C Language </option>
-
-</select>
-</td>
-</tr>
-<br>
-<tr>
-<td>Marks:  </td>
-    <input type="number" name="marks" value="{{ record[5]}}">
-</tr>
-<br>
-<tr>
-
-<td> Client: </TD>
-    <select name="client">
-        <option selected hidden> {{record[6]}}</option>
-        <option value="ONS"> ONS </option>
-        <option value="IBM"> IBM </option>
-        <option value="GIT"> GIT </option>
-        <option value="NBS"> NBS </option>
-    </select>
-
-<td colspan="2"><input type="submit"></td>
-<td></td>
-</tr>
-</table>
-
-</form>
-
+	<div class='form'>
+		<form action="" method="POST">
+			{{ form.hidden_tag() }}
+			{{ form.emp_name.label }} {{ form.emp_name }}
+			<br>
+			{{ form.salary.label }} {{ form.salary }}
+			<br>
+			{{ form.marks.label }} {{ form.marks }}
+			<br>
+			{{ form.subject.label }} {{form.subject }}
+			<br>
+			{{ form.department.label }} {{ form.department }}
+			<br>
+			{{ form.submit }}
+		</form>
+	</div>
 </html>
