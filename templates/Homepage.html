@@ -1,0 +1,55 @@
+<html>
+
+<center> <h2> Employee Information Systems </h2>
+
+<br>
+<br>
+<br>
+<a href="http://localhost:5000/addnewRecord"> New Record </a>
+
+<form action="http://localhost:5000/filterrecords" method="POST">
+<select name="dept">
+    <option value="HR"> Human Resources </option>
+    <option value="IT"> Information Technology </option>
+    <option value="Sales"> Sales </option>
+    <option value="Training"> Training and Development </option>
+    <option value="all"> All Records </option>
+    </select>
+    <input type="submit" value="Filter">
+</form>
+
+<form action="http://localhost:5000/filtersubject" method="POST">
+    <select name="subject">
+        <option value="Java"> Java Programming </option>
+        <option value="SQL"> SQL Development </option>
+        <option value="Python"> Python </option>
+        <option value="C"> C Language </option>
+        <option value="all"> All Records </option>
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+
+
+    <table>
+    <tr bgcolor='Blue'>
+        <td> Name </td>
+        <td> Department </td>
+        <td> Subject </td>
+        <td> Client </td>
+        <td> Operations </td>
+    </tr>
+    {%for record in records %}
+
+    <tr>
+        <td> <a href="http://localhost:5000/personaldetails/{{record[0]}}"> {{record[1]}} </a></td>
+        <td>    {{record[2]}} </td>
+        <td>    {{record[4]}} </td>
+        <td>    {{record[6]}} </td>
+        <td> <a href="http://localhost:5000/editRecordForm/{{record[0]}}"> edit </a>, 
+            <a href="http://localhost:5000/deleteEmployee/{{record[0]}}"> delete </a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+</html>
